@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Courier+Prime:wght@400;700&display=swap');
+:root{
+    --win-grey:#c0c0c0;
+
+}
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+html,
+body,
+#crt-frame{
+    min-height:100vh;
+}
+#crt-frame{
+    position:relative;
+    width:100%;
+}
 .boot-screen{
     position:absolute;
     top:0;
