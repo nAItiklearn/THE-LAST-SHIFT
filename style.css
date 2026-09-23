@@ -1,87 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&family=Courier+Prime:wght@400;700&display=swap');
-:root{
-    --win-grey:#c0c0c0;
-
+:root {
+    --terminal-font: "Courier New", monospace;
+    --bios-green: #65ff65;
+    --desktop-teal: #008080;
 }
-*{
+
+* {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
-    user-select: none;
-    -webkit-user-select: none;
 }
+
 html,
-body,
-#crt-frame{
-    min-height:100vh;
+body {
+    min-height: 100%;
+    margin: 0;
 }
-#crt-frame{
-    position:relative;
-    width:100%;
-}
-.boot-screen{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-color: black;
-    color:antiquewhite;
-    z-index:8000;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-.power-prompt{
-    text-align:center;
+
+body {
+    background: #111;
     font-family: var(--terminal-font);
-    color:#a0a0a0
 }
-.pc-badge{
-    font-size:14px;
-    letter-spacing:2px;
-    margin-bottom:25px;
-    color:#888
 
+.crt-frame {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #000;
+    box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.85);
 }
-.retro-power-btn{
-    background: #1e1e1e;
-    color:#33ff33;
-    border:3px outset #444;
-    padding:16px 36px;
-    font-size:16px;
-    font-family: var(--terminal-font);
-    font-weight: bold;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    transition:all 0.1s;
-    box-shadow: 0px 4px 15px #0c560c;
-}
-.retro-power-btn-hover{
-    background:#282828;
-    color: #66ff66;
-    border-color:#666
-}
-.retr-power-button:active{
-    border-style:inset;
-    transform:translateY(2px)
-}
-.power-icon{
-    font-size:22px;
 
+.crt-frame::after {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(0, 0, 0, 0.14) 4px
+    );
+    content: "";
 }
-.power-hint{
-    margin-top:20px;
-    font-size:12px;
-    color:#555;
-    letter-spacing:1px;
-}
-.boot-terminal{
-    width:100%;
-    height:100%;
-    padding: 40px;
-    
 
+.boot-screen,
+.os-root {
+    min-height: 100vh;
+}
+
+.boot-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    background: #000;
+}
+
+.power-prompt {
+    text-align: center;
+}
+
+.pc-badge {
+    margin: 0 0 24px;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.retro-power-btn {
+    padding: 16px 28px;
+    border: 3px outset #3aff3a;
+    color: var(--bios-green);
+    background: #181818;
+    font: bold 16px var(--terminal-font);
+    cursor: pointer;
+}
+
+.retro-power-btn:hover {
+    color: #baffba;
+    background: #292929;
+}
+
+.retro-power-btn:active {
+    border-style: inset;
+    transform: translateY(2px);
+}
+
+.power-hint {
+    margin: 18px 0 0;
+    color: #666;
+    font-size: 12px;
+}
+
+.boot-terminal {
+    width: 100%;
+    padding: 32px;
+    color: var(--bios-green);
+    font: 16px/1.4 var(--terminal-font);
+}
+
+.terminal-content {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    margin-top: 8px;
+    background: var(--bios-green);
+    animation: blink 0.8s steps(2, start) infinite;
+}
+
+.os-root {
+    background: var(--desktop-teal);
+}
+
+.desktop {
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.desktop-icon {
+    display: flex;
+    width: 90px;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 6px;
+    border: 1px solid transparent;
+    color: #fff;
+    background: transparent;
+    font: 12px var(--terminal-font);
+    text-align: center;
+    cursor: pointer;
+}
+
+.desktop-icon:hover,
+.desktop-icon:focus-visible {
+    border-color: rgba(255, 255, 255, 0.8);
+    outline: none;
+}
+
+.desktop-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }

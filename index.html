@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>WINCORP OS v2003.11 - [A.MEHRA]</title>
-    <meta name="description" content="WINCcorp enterprise workstation OS build 2003.11- Arun Mehra's terminal.">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wincorp Computer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <!--Physiacl CRT moniter -->
-  <div id="crt-frame" class="crt-frame">
-     <div class="crt-scanlines"></div>
-     <div class="crt-vignette"></div>
-     <div class="crt-noise" id="crt-noice"></div>
-     <div class="crt-tear" id="crt-tear"></div>
-     <!--power boot-->
-     <div id="boot-screen" class="boot-screen">
-            <div class="power-prompt" id="power-prompt">
-                <div class="pc-badge">WINCORP COMPUTING INC. - HARDWARE REV 4.2</div>
-                <div class="power-btn-container">
-                    <button id="power-btn" class="retro-power-btn" aria-label="Power ON laptop">
-                        <Span class="power icon">  ⏻</Span>
-                        <span class="power text">POWER ON COMPUTER</span>
-                    </button>
-                </div>
-                <div class="power-hint">[click to initialize workstation hardware]</div>
+    <main id="crt-frame" class="crt-frame">
+        <section id="boot-screen" class="boot-screen" aria-label="Computer startup">
+            <div id="power-prompt" class="power-prompt">
+                <p class="pc-badge">WINCORP COMPUTING INC.</p>
+                <button id="power-btn" class="retro-power-btn" type="button">
+                    POWER ON COMPUTER
+                </button>
+                <p class="power-hint">[ click to initialize workstation ]</p>
             </div>
-            <div class="boot-terminal" id="boot-terminal" style="display:none;">
-                <div class="terminal-content" id="terminal-content"></div>
-                <div class="terminal-cursor"></div>
+
+            <div id="boot-terminal" class="boot-terminal" hidden>
+                <pre id="terminal-content" class="terminal-content"></pre>
+                <span class="terminal-cursor" aria-hidden="true"></span>
             </div>
-      </div>
-    <script src="script.js" defer></script>
+        </section>
+
+        <section id="os-root" class="os-root" hidden>
+            <div id="desktop" class="desktop">
+                <button id="my-documents" class="desktop-icon" type="button">
+                    <img src="assets/icons/files/directory_open_file_mydocs_2k-4.png" alt="">
+                    <span>My Documents</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
