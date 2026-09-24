@@ -50,3 +50,13 @@ function startComputer() {
 }
 
 powerButton.addEventListener("click", startComputer);
+const myDocuments=document.getElementById("my-documents");
+const fileManager=document.getElementById("file-manager");
+const closeFileManager=document.getElementById("close-file-manager");
+
+myDocuments.addEventListener("click", function(){
+    fileManager.hidden=false;
+});
+closeFileManager.addEventListener("click",function(){
+    fileManager.hidden=false;
+});

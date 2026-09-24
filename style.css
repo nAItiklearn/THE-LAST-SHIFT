@@ -156,3 +156,41 @@ body {
         opacity: 0;
     }
 }
+.file-manager{
+    color: #000;
+    font-family: (var(--terminal-font));
+    background: #c0c0c0;
+    position: absolute;
+    top:120px;
+    min-height: 300px;
+    left:180px;
+    width: 500px;
+    z-index: 20;
+    border:2px outset #ffff;
+
+}
+.file-manager-titlebar{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:4px 6px;
+    background: #237070;
+    color:#fff;
+
+}
+.file-manager-tilebar button{
+    width: 24px;
+    height:24px ;
+    border:2px outset #fff  ;
+    background:#c0c0c0 ;
+    color: #000 ;
+    font-family: var(--terminal-font);
+    font-weight: bold;
+    cursor:pointer;
+}
+.file-manager-content{
+    padding:20px;
+    min-height: 260px;
+    background: #fff;
+
+}
