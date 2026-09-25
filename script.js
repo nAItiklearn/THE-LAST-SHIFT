@@ -61,11 +61,14 @@ const filesystem={
             children:[
                 {
                     name:"README.txt",
-                    type:"file"
+                    type:"file",
+                    content: "WINCORP WORKSTATION README\nSystem installation completed in 2023"
+
                 },
                 {
                     name:"report.txt",
                     type:"file",
+                    content:"maintainance report:\n\n03:14 AM- unexpected system activity detected.\n hardware fault found"
                 }
             ]
         },
@@ -121,12 +124,16 @@ function renderFolder(folder){
     folder.children.forEach(function(item){
         const itemElement=document.createElement("button");
         itemElement.type="button";
+        itemElement.classList.add("file-item");
 
         itemElement.addEventListener("dblclick", function(){
             if(item.type==="folder"){
                 folderHistory.push(currentFolder);
                 currentFolder=item;
                 renderFolder(currentFolder);
+            }
+            else if(item.type==="file"){
+                openTextFile(item);
             }
         });
 
@@ -147,4 +154,17 @@ function renderFolder(folder){
 
     })
 
+}
+const textViewer= document.getElementById("text-viewer");
+const textViewerTitle=document.getElementById("text-viewer-title");
+const textViewerContent=document.getElementById("text-viewer-content");
+const closeTextViewer=document.getElementById("close-text-viewer");
+
+closeTextViewer.addEventListener("click",function(){
+    textViewer.hidden=true;
+});
+function openTextFile(file){
+    textViewerTitle.textContent =file.name;
+    textViewerContent.textContent=file.content;
+    textViewer.hidden=false;
 }

@@ -158,7 +158,7 @@ body {
 }
 .file-manager{
     color: #000;
-    font-family: (var(--terminal-font));
+    font-family: var(--terminal-font);
     background: #c0c0c0;
     position: absolute;
     top:120px;
@@ -215,11 +215,42 @@ body {
     border:2px outset #ffff;
     background: #c0c0c0;
     font-family: var(--terminal-font);
-    font-size:15;
+    font-size:15px;
     cursor: pointer;
 
 
 }
 #back-button:hover{
     background: #e4dfdf;
+}
+.text-viewer{
+    position: absolute;
+    top:15%;
+    left:15%;
+    width:70%;
+    background: #c0c0c0;
+    border:2px outset #ffffff;
+    z-index: 30;
+
+}
+.text-viewer-titlebar{
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 6px;
+    background: #000080;
+    font-size: 14px;
+}
+.text-viewer-titlebar button{
+    border: 1px outset #ffffff;
+    background: #c0c0c0;
+
+}
+#text-viewer-content{
+    min-height: 250px;
+    margin:0;
+    padding:15px;
+    background: #eeeeee;
+    color:#fffbfb;
+    white-space: pre-wrap;
+    overflow: auto;
 }
