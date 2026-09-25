@@ -1,6 +1,7 @@
 # WINCORP COMPUTER
 A small creepy retro pc website. 
 
+## try now - https://naitiklearn.github.io/THE-LAST-SHIFT/
 
 you basically have to explore files left on it. Most of them look normal but they are lwk connected . 
 
