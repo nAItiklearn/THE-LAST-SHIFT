@@ -5,6 +5,11 @@ const terminalContent = document.getElementById("terminal-content");
 const bootScreen = document.getElementById("boot-screen");
 const osRoot = document.getElementById("os-root");
 const bootSound = new Audio("assets/sounds/boot.mp3");
+const endingSound = new Audio("assets/sounds/main_jumpscare.mp3");
+const glitchSound= new Audio("assets/sounds/glitch.mp3");
+const DesktopAudio= new Audio("assets/sounds/main_loop_full.mp3");
+DesktopAudio.loop=true;
+DesktopAudio.volume=0.5;
 
 const bootLines = [
     "WINCORP WORKSTATION BIOS v4.06.01 - BUILD 2003.11",
@@ -23,6 +28,8 @@ const bootLines = [
 function showDesktop() {
     bootScreen.hidden = true;
     osRoot.hidden = false;
+    DesktopAudio.currentTime=0;
+    DesktopAudio.play().catch(function(){});
 }
 
 function printBootLines(lineIndex) {
@@ -134,6 +141,7 @@ const filesystem={
                 {
                     name:"system.txt",  // will be the main file
                     type:"file",
+                    special:"ending",
                     content:
                     "MAINTENANCE REPORT\n\n" +
                     "03:14 AM - Unexpected system activity detected.\n" +
@@ -224,7 +232,12 @@ function renderFolder(folder){
                 renderFolder(currentFolder);
             }
             else if(item.type==="file"){
-                openTextFile(item);
+                if(item.special==="ending"){
+                    startEnding();
+                }
+                else{
+                    openTextFile(item);
+                }
             }
             else if(item.type==="image"){
                 openImageFile(item);
@@ -276,4 +289,29 @@ function openImageFile(file){
     imageViewerTitle.textContent=file.name;
     imageViewerImage.src=file.src;
     imageViewer.hidden=false;
+}
+
+const endingScene=document.getElementById("ending-scene");
+const endingImage=document.getElementById("ending-image");
+
+function startEnding(){
+    endingImage.src="assets/horror/jumpscare1.jpg"
+    endingScene.hidden=false;
+    glitchSound.currentTime=0;
+    endingSound.play().catch(function(){});
+
+    endingScene.classList.add("glitch");
+    setTimeout(function(){
+        endingScene.classList.remove("glitch");
+        endingSound.volume=0.9;
+        endingSound.play().catch(function(){});
+    },1000);
+    setTimeout(function(){
+        endingImage.style.display="none";
+        const message=document.getElementById("ending-message");
+        message.style.opacity="1";
+    },3000);
+    setInterval(function(){
+        endingScene.hidden=true;
+    },5500);
 }

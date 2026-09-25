@@ -45,7 +45,6 @@ body {
 .os-root {
     min-height: 100vh;
 }
-
 .boot-screen {
     display: flex;
     align-items: center;
@@ -67,15 +66,14 @@ body {
 
 .retro-power-btn {
     padding: 16px 28px;
-    border: 3px outset #3aff3a;
-    color: var(--bios-green);
+    color: rebeccapurple;
     background: #181818;
     font: bold 16px var(--terminal-font);
     cursor: pointer;
 }
 
 .retro-power-btn:hover {
-    color: #baffba;
+    color: #220802;
     background: #292929;
 }
 
@@ -118,6 +116,8 @@ body {
 .desktop {
     min-height: 100vh;
     padding: 24px;
+    background: #010501 url("assets/wallpapers/scary_wall.png")center/cover no-repeat;  /* the green one is used for fallback */
+    
 }
 
 .desktop-icon {
@@ -128,7 +128,7 @@ body {
     gap: 6px;
     padding: 6px;
     border: 1px solid transparent;
-    color: #fff;
+    color:#ececee;
     background: transparent;
     font: 12px var(--terminal-font);
     text-align: center;
@@ -286,9 +286,59 @@ body {
     white-space: pre-wrap;
     overflow: auto;
 }
+
 #image-viewer-image{
     max-width: 100%;
     object-fit: contain;
     max-height:60% ;
+}
+.ending-scene{
+    position: absolute;
+    inset:0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+.ending-scene img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.glitch{
+    animation:screen-glitch 0.80s steps(4) infinite; 
+}
+@keyframes screen-glitch{
+    0%{
+        transform:translate(0);
+        filter: none;
+    }
+    25%{
+        transform:translate(-8px , 3px);
+        filter:contrast(2);
+    }
+    50%{
+        transform: translate(8px, -3px);
+        filter:brightness(3);
+    }
+    75%{
+        transform: translate(-4px, 2px);
+        filter:contrast(5);
+    }
+    100%{
+        transform: translate(0);
+        filter:none
+    }
+
+}
+
+#ending-message{
+    position: absolute;
+    color:Red;
+    font-size: 24px;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    font-weight: 1000;
 }
