@@ -176,7 +176,7 @@ const filesystem={
                 {
                     name:"image2.png",
                     type:"image",
-                    src:"assets/recyclebin/image2.png "
+                    src:"assets/recyclebin/image2.png"
 
                 }
             ]
@@ -227,7 +227,7 @@ function renderFolder(folder){
                 openTextFile(item);
             }
             else if(item.type==="image"){
-                openTextFile(item);
+                openImageFile(item);
                 
             }
         });
@@ -264,16 +264,16 @@ function openTextFile(file){
     textViewer.hidden=false;
 }
 
-const imageViewer= document.getElementById("image-viewer");
-const imageViewerTitle=document.getElementById("image-viewer-title");
-const imageViewerContent=document.getElementById("image-viewer-content");
-const closeImageViewer=document.getElementById("close-image-viewer");
+const imageViewer = document.getElementById("image-viewer");
+const imageViewerTitle = document.getElementById("image-viewer-title");
+const imageViewerImage = document.getElementById("image-viewer-image");
+const closeImageViewer = document.getElementById("close-image-viewer");
 
 closeImageViewer.addEventListener("click",function(){
     imageViewer.hidden=true;
 });
 function openImageFile(file){
-    imageViewer.textContent=file.name;
-    imageViewerContent.textContent=file.src;
+    imageViewerTitle.textContent=file.name;
+    imageViewerImage.src=file.src;
     imageViewer.hidden=false;
 }

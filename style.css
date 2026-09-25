@@ -254,3 +254,41 @@ body {
     white-space: pre-wrap;
     overflow: auto;
 }
+.image-viewer{
+    position: absolute;
+    background: #c0c0c0;
+    border:2px outset #ffff;;
+    z-index: 30;
+    top:10%;
+    left:20%;
+    width: 60%;
+
+}
+.image-viewer-titlebar{
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 6px;
+    background: #000080;
+    font-size: 14px;
+
+}
+.image-viewer-titlebar button{
+    border: 1px outset #ffffff;
+    background: #c0c0c0;
+
+}
+.image-viewer-content{
+    min-height: 250px;
+    margin:0;
+    padding:15px;
+    background: #eeeeee;
+    color:#000;
+    white-space: pre-wrap;
+    overflow: auto;
+}
+#image-viewer-image{
+    max-width: 100%;
+    object-fit: contain;
+    max-height:60% ;
+
+}
