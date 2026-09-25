@@ -89,7 +89,8 @@ const filesystem={
         }
     ]
 };
-console.log(filesystem);
+
+let currentFolder=filesystem;
 powerButton.addEventListener("click", startComputer);
 const myDocuments=document.getElementById("my-documents");
 const fileManager=document.getElementById("file-manager");
@@ -97,6 +98,7 @@ const closeFileManager=document.getElementById("close-file-manager");
 
 myDocuments.addEventListener("click", function(){
     fileManager.hidden=false;
+    currentFolder =filesystem;
     renderFolder(filesystem);
 });
 closeFileManager.addEventListener("click",function(){
@@ -111,12 +113,20 @@ function renderFolder(folder){
         const itemElement=document.createElement("button");
         itemElement.type="button";
 
+        itemElement.addEventListener("dblclick", function(){
+            if(item.type==="folder"){
+                currentFolder=item;
+                renderFolder(currentFolder);
+            }
+        });
+
         const icon= document.createElement("img");
         icon.classList.add("file-item-icon");
         
         if(item.type==="folder"){
             icon.src="assets/icons/files/folder.png";
         }
+
 
         const name =document.createElement("span");
         name.textContent=item.name;
