@@ -86,11 +86,39 @@ const filesystem={
                     name:"old_notes.txt",
                     type:"file",
                     content:
-                    "OLD TECHNICIAN NOTES\n\n" +
-                    "02/11/2003\n\n" +
-                    "The workstation turned itself on again at 03:14 AM.\n" +
-                    "No one was in the room.\n\n" +
-                   "I was told not to write this down."
+                    " OLD NOTES\n\n" +
+                    "03:14 AM.\n\n" +
+                    "The computer turned itself on again.\n" +
+                    "I checked the room. Nobody was there.\n\n" +
+                    "I switched it off."
+                },
+                {
+                    name:"report.txt",
+                    type:"file",
+                    content:"REPORT\n\n" +
+                "The workstation has started turning on by itself.\n\n" +
+                "No hardware problems were found.\n" +
+                "No power failure was recorded.\n\n" +
+                "Last incident: 03:14 AM."
+                },
+                {
+                    name:"arun.txt",
+                    type:"file",
+                    content: "ARUN\n\n" +
+                    "Employee: Arun\n" +
+                    "Workstation: WINCORP-17\n\n" +
+                    "Last recorded activity:\n" +
+                    "03:14 AM"
+                },
+                {
+                    name:"note.txt",
+                    type:"file",
+                    content:
+                    "I don't think the computer is broken.\n\n" +
+                    "It keeps doing the same thing.\n\n" +
+                    "03:14.\n\n" +
+                    "Every night."
+
                 },
                 {
                     name:"visiter_log.txt",
@@ -104,7 +132,7 @@ const filesystem={
 
                 },
                 {
-                    name:"maintainance.txt",
+                    name:"system.txt",  // will be the main file
                     type:"file",
                     content:
                     "MAINTENANCE REPORT\n\n" +
