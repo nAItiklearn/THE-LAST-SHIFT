@@ -68,7 +68,13 @@ const filesystem={
                 {
                     name:"report.txt",
                     type:"file",
-                    content:"maintainance report:\n\n03:14 AM- unexpected system activity detected.\n hardware fault found"
+                    content:
+                    "MAINTENANCE REPORT\n\n" +
+                    "03:14 AM - Unexpected system activity detected.\n" +
+                    "03:16 AM - Monitor switched on without input.\n" +
+                    "03:19 AM - Technician left the room.\n\n" +
+                    "Hardware fault: NONE\n\n" +
+                    "NOTE: The activity was not caused by a power failure."
                 }
             ]
         },
@@ -79,12 +85,47 @@ const filesystem={
                 {
                     name:"old_notes.txt",
                     type:"file",
+                    content:
+                    "OLD TECHNICIAN NOTES\n\n" +
+                    "02/11/2003\n\n" +
+                    "The workstation turned itself on again at 03:14 AM.\n" +
+                    "No one was in the room.\n\n" +
+                   "I was told not to write this down."
+                },
+                {
+                    name:"visiter_log.txt",
+                    type:"file",
+                    content:
+                    "VISITOR LOG\n\n" +
+                    "02/11/2003    23:48    --\n" +
+                    "02/11/2003    23:52    --\n" +
+                    "02/12/2003    03:14    UNKNOWN\n\n" +
+                    "There is no employee record matching the final entry."
+
+                },
+                {
+                    name:"maintainance.txt",
+                    type:"file",
+                    content:
+                    "MAINTENANCE REPORT\n\n" +
+                    "03:14 AM - Unexpected system activity detected.\n" +
+                    "03:16 AM - Monitor switched on without input.\n" +
+                    "03:19 AM - Technician left the room.\n\n" +
+                    "Hardware fault: NONE"
                 }
             ]
         },
         {
             name:"README.txt",
             type:"file",
+            content:
+            "WINCORP WORKSTATION README\n\n" +
+            "System installation completed in 2003.\n\n" +
+            "Standard workstation configuration:\n" +
+            "- Pentium 4\n" +
+            "- 512 MB RAM\n" +
+            "- 80 GB HDD\n\n" +
+            "All systems should remain powered off after 22:00."
         },
         {
             name:"private.txt",
