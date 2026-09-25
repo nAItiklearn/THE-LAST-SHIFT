@@ -178,7 +178,7 @@ body {
     color:#fff;
 
 }
-.file-manager-tilebar button{
+.file-manager-titlebar button{
     width: 24px;
     height:24px ;
     border:2px outset #fff  ;
@@ -193,4 +193,15 @@ body {
     min-height: 260px;
     background: #fff;
 
+}
+.file-item{
+    display:flex;
+    align-items: center;
+    gap:10px;
+    width:100%;
+    padding:7px;
+    background: transparent;
+    font-family: var(--terminal-font);
+    font-size: 14px;
+    
 }

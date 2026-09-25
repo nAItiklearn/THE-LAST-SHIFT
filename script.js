@@ -49,6 +49,47 @@ function startComputer() {
     printBootLines(0);
 }
 
+const filesystem={
+    name:"My Documents",
+    type:"folder",
+
+    children:[
+        {
+            name:"projects",
+            type:"folder",
+
+            children:[
+                {
+                    name:"README.txt",
+                    type:"file"
+                },
+                {
+                    name:"report.txt",
+                    type:"file",
+                }
+            ]
+        },
+        {
+            name:"archive",
+            type:"folder",
+            children:[
+                {
+                    name:"old_notes.txt",
+                    type:"file",
+                }
+            ]
+        },
+        {
+            name:"README.txt",
+            type:"file",
+        },
+        {
+            name:"private.txt",
+            type:"file",
+        }
+    ]
+};
+console.log(filesystem);
 powerButton.addEventListener("click", startComputer);
 const myDocuments=document.getElementById("my-documents");
 const fileManager=document.getElementById("file-manager");
@@ -56,7 +97,34 @@ const closeFileManager=document.getElementById("close-file-manager");
 
 myDocuments.addEventListener("click", function(){
     fileManager.hidden=false;
+    renderFolder(filesystem);
 });
 closeFileManager.addEventListener("click",function(){
-    fileManager.hidden=false;
+    fileManager.hidden=true;
 });
+
+const fileList = document.getElementById("file-manager-content");
+
+function renderFolder(folder){
+    fileList.innerHTML="";
+    folder.children.forEach(function(item){
+        const itemElement=document.createElement("button");
+        itemElement.type="button";
+
+        const icon= document.createElement("img");
+        icon.classList.add("file-item-icon");
+        
+        if(item.type==="folder"){
+            icon.src="assets/icons/files/folder.png";
+        }
+
+        const name =document.createElement("span");
+        name.textContent=item.name;
+        itemElement.appendChild(icon);
+        itemElement.appendChild(name);
+
+        fileList.appendChild(itemElement);
+
+    })
+
+}
