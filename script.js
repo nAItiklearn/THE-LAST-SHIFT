@@ -91,20 +91,29 @@ const filesystem={
 };
 
 let currentFolder=filesystem;
+let folderHistory =[];
 powerButton.addEventListener("click", startComputer);
 const myDocuments=document.getElementById("my-documents");
 const fileManager=document.getElementById("file-manager");
 const closeFileManager=document.getElementById("close-file-manager");
+const backButton=document.getElementById("back-button");
 
 myDocuments.addEventListener("click", function(){
     fileManager.hidden=false;
     currentFolder =filesystem;
+    folderHistory=[];
     renderFolder(filesystem);
 });
 closeFileManager.addEventListener("click",function(){
     fileManager.hidden=true;
 });
-
+backButton.addEventListener("click", function(){
+    if(folderHistory.length===0){
+        return;
+    }
+    currentFolder=folderHistory.pop();
+    renderFolder(currentFolder);
+});
 const fileList = document.getElementById("file-manager-content");
 
 function renderFolder(folder){
@@ -115,6 +124,7 @@ function renderFolder(folder){
 
         itemElement.addEventListener("dblclick", function(){
             if(item.type==="folder"){
+                folderHistory.push(currentFolder);
                 currentFolder=item;
                 renderFolder(currentFolder);
             }

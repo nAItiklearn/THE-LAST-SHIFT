@@ -205,3 +205,21 @@ body {
     font-size: 14px;
     
 }
+.file-manager-toolbar{
+    padding:6px;
+    border-bottom: 1px solid #808080;
+    background: #c0c0c0;
+}
+#back-button{
+    padding: 3px 10px;
+    border:2px outset #ffff;
+    background: #c0c0c0;
+    font-family: var(--terminal-font);
+    font-size:15;
+    cursor: pointer;
+
+
+}
+#back-button:hover{
+    background: #e4dfdf;
+}
