@@ -121,7 +121,7 @@ const filesystem={
 
                 },
                 {
-                    name:"visiter_log.txt",
+                    name:"visitor_log.txt",
                     type:"file",
                     content:
                     "VISITOR LOG\n\n" +
@@ -158,6 +158,28 @@ const filesystem={
         {
             name:"private.txt",
             type:"file",
+            content:
+            "PRIVATE\n\n"+
+            "Do not open this on a shared workstation"
+        },
+        {
+            name:"recycle bin",
+            type:"folder",
+            
+            children:[
+                {
+                    name:"image.png",
+                    type:"image",
+                    src:"assets/recyclebin/image.png"
+
+                },
+                {
+                    name:"image2.png",
+                    type:"image",
+                    src:"assets/recyclebin/image2.png "
+
+                }
+            ]
         }
     ]
 };
@@ -204,6 +226,10 @@ function renderFolder(folder){
             else if(item.type==="file"){
                 openTextFile(item);
             }
+            else if(item.type==="image"){
+                openTextFile(item);
+                
+            }
         });
 
         const icon= document.createElement("img");
@@ -236,4 +262,18 @@ function openTextFile(file){
     textViewerTitle.textContent =file.name;
     textViewerContent.textContent=file.content;
     textViewer.hidden=false;
+}
+
+const imageViewer= document.getElementById("image-viewer");
+const imageViewerTitle=document.getElementById("image-viewer-title");
+const imageViewerContent=document.getElementById("image-viewer-content");
+const closeImageViewer=document.getElementById("close-image-viewer");
+
+closeImageViewer.addEventListener("click",function(){
+    imageViewer.hidden=true;
+});
+function openImageFile(file){
+    imageViewer.textContent=file.name;
+    imageViewerContent.textContent=file.src;
+    imageViewer.hidden=false;
 }
